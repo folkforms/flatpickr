@@ -48,6 +48,7 @@ export const createDateParser = ({ config = defaults, l10n = english }) => (
   timeless?: boolean,
   customLocale?: Locale
 ): Date | undefined => {
+  console.log("#### spinwildly-flatpickr createDateParser");
   if (date !== 0 && !date) return undefined;
 
   const locale = customLocale || l10n;

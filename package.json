@@ -1,6 +1,6 @@
 {
-  "name": "flatpickr",
-  "version": "4.6.13",
+  "name": "@spinwildly/flatpickr",
+  "version": "0.0.1",
   "description": "A lightweight, powerful javascript datetime picker",
   "scripts": {
     "build": "run-s build:pre build:build build:esm build:types build:post",
@@ -57,7 +57,7 @@
   "types": "./dist/typings.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chmln/flatpickr.git"
+    "url": "git@github.com:folkforms/flatpickr.git"
   },
   "author": "Gregory <gregory.mkv@gmail.com>",
   "license": "MIT",

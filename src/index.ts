@@ -1621,6 +1621,7 @@ function FlatpickrInstance(
   }
 
   function onBlur(e: FocusEvent) {
+    console.log("#### @spinwildly/flatpickr 0.0.2-preview");
     const isInput = e.target === self._input;
     const valueChanged = self._input.value.trimEnd() !== getDateStr();
 
