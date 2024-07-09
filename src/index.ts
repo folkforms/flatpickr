@@ -406,8 +406,11 @@ function FlatpickrInstance(
     bind(window.document, "focus", documentClick, { capture: true });
 
     if (self.config.clickOpens === true) {
-      bind(self._input, "focus", self.open);
       bind(self._input, "click", self.open);
+    }
+
+    if (self.config.focusOpens === true) {
+      bind(self._input, "focus", self.open);
     }
 
     if (self.daysContainer !== undefined) {
@@ -1942,6 +1945,7 @@ function FlatpickrInstance(
       "allowInput",
       "allowInvalidPreload",
       "clickOpens",
+      "focusOpens",
       "time_24hr",
       "enableTime",
       "noCalendar",
@@ -2361,11 +2365,18 @@ function FlatpickrInstance(
     clickOpens: [
       () => {
         if (self.config.clickOpens === true) {
-          bind(self._input, "focus", self.open);
           bind(self._input, "click", self.open);
         } else {
-          self._input.removeEventListener("focus", self.open);
           self._input.removeEventListener("click", self.open);
+        }
+      },
+    ],
+    focusOpens: [
+      () => {
+        if (self.config.focusOpens === true) {
+          bind(self._input, "focus", self.open);
+        } else {
+          self._input.removeEventListener("focus", self.open);
         }
       },
     ],

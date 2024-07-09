@@ -78,10 +78,7 @@ export interface BaseOptions {
   /* Defaults to true */
   autoFillDefaultTime: boolean;
 
-  /*
-    Whether clicking on the input should open the picker.
-    Set it to false if you only want to open the calendar programmatically
-  */
+  /* Whether clicking on the input should open the picker. */
   clickOpens: boolean;
 
   /* Whether calendar should close after date selection */
@@ -131,6 +128,9 @@ By default, Flatpickr utilizes native datetime widgets unless certain options (e
   enableTime: boolean;
 
   errorHandler: (e: Error) => void;
+
+  /* Whether focusing on the input should open the picker. */
+  focusOpens: boolean;
 
   /* Allows using a custom date formatting function instead of the built-in. Generally unnecessary.  */
   formatDate: (date: Date, format: string, locale: Locale) => string;
@@ -291,6 +291,7 @@ export interface ParsedOptions {
   enableSeconds: boolean;
   enableTime: boolean;
   errorHandler: (err: Error) => void;
+  focusOpens: boolean;
   formatDate?: Options["formatDate"];
   getWeek: (date: Date) => string | number;
   hourIncrement: number;
@@ -357,6 +358,7 @@ export const defaults: ParsedOptions = {
   enableTime: false,
   errorHandler: (err: Error) =>
     typeof console !== "undefined" && console.warn(err),
+  focusOpens: true,
   getWeek: (givenDate: Date) => {
     const date = new Date(givenDate.getTime());
     date.setHours(0, 0, 0, 0);
