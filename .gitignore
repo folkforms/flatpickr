@@ -4,3 +4,8 @@ index.html
 coverage
 dist
 *.tsbuildinfo
+
+v.bat
+go.bat
+temp1/
+*.tgz
