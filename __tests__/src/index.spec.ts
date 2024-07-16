@@ -779,16 +779,38 @@ describe("flatpickr", () => {
       fp.jumpToDate(new Date(2020, 4, 17), true);
     });
 
-    it("open() and clickOpens interaction", () => {
+    it("open() interaction", () => {
+      const fp = createInstance({});
+      fp.open();
+      expect(fp.isOpen).toEqual(true);
+    });
+
+    it("clickOpens interaction", () => {
       const fp = createInstance({
         clickOpens: false,
       });
-
       simulate("click", fp._input);
       expect(fp.isOpen).toEqual(false);
 
-      fp.open();
-      expect(fp.isOpen).toEqual(true);
+      const fp2 = createInstance({
+        clickOpens: true,
+      });
+      simulate("click", fp2._input);
+      expect(fp2.isOpen).toEqual(true);
+    });
+
+    it("focusOpens interaction", () => {
+      const fp = createInstance({
+        focusOpens: false,
+      });
+      simulate("focus", fp._input);
+      expect(fp.isOpen).toEqual(false);
+
+      const fp2 = createInstance({
+        focusOpens: true,
+      });
+      simulate("focus", fp2._input);
+      expect(fp2.isOpen).toEqual(true);
     });
   });
 
